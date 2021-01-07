@@ -14,13 +14,9 @@ log_green "finish installing common tools\n"
 
 # aliyun yum source:
 log_blue "enable aliyun yum source"
-if [ ! -e /etc/yum.repos.d/CentOS-Base.repo.bak ]; then
-  cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
-fi
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak.`date +%F`
 wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-if [ ! -e /etc/yum.repos.d/epel.repo.bak ]; then
-  cp /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.bak
-fi
+mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.bak.`date +%F`
 wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
 log_green "enabled aliyun yum source\n"
 
