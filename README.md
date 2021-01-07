@@ -7,7 +7,7 @@
 2.hostname and network hostname is configured.
 
 
-### Note
+### Usage
 1. run install_cdh_common.sh on every node.
 
 2. run install_cdh_manger.sh on the manager node.
