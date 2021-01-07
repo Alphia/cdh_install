@@ -64,24 +64,3 @@ log_blue "install jdk8 as cdh6.2.1 required"
 yum install java-1.8.0-openjdk-devel -y
 log_green "jdk8 is now available\n"
 
-# disable fastermirror
-cp /etc/yum/pluginconf.d/fastestmirror.conf /etc/yum/pluginconf.d/fastestmirror.conf.bak
-sed -i -e "s/enabled=1/enabled=0/" /etc/yum/pluginconf.d/fastestmirror.conf
-sed -i -e "s/plugins=1/plugins=0/" /etc/yum.conf
-
-# install the cloudera manager
-# config repo for cdh
-log_blue "config cdh repo to install cdh"
-log_yellow "note: this action is only need for the manager node"
-if [ -e /etc/yum.repos.d/cloudera-manager.repo ]; then 
-  echo "cloudera-manager.repo exists, no need to install"
-else
-  wget https://archive.cloudera.com/cm6/6.2.1/redhat7/yum/cloudera-manager.repo -P /etc/yum.repos.d/
-fi
-# Import the repository signing GPG key
-rpm --import https://archive.cloudera.com/cm6/6.2.1/redhat7/yum/RPM-GPG-KEY-cloudera
-# Install Cloudera Manager Packages on the 
-#yum install cloudera-manager-daemons cloudera-manager-agent cloudera-manager-server
-
-
-
