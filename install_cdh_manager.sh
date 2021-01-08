@@ -16,7 +16,7 @@ fi
 rpm --import https://archive.cloudera.com/cm6/6.2.1/redhat7/yum/RPM-GPG-KEY-cloudera
 # Install Cloudera Manager Packages on the 
 yum install cloudera-manager-daemons cloudera-manager-agent cloudera-manager-server
-JAVAHOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.275.b01-0.el7_9.x86_64 /opt/cloudera/cm-agent/bin/certmanager setup --configure-services
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.275.b01-0.el7_9.x86_64 /opt/cloudera/cm-agent/bin/certmanager setup --configure-services
 
 
 

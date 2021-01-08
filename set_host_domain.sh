@@ -5,7 +5,7 @@ set -euxo pipefail
 
 hostnamectl set-hostname $1.$2
 
-sed -i -e "s/127.0.0.1.*/127.0.0.1 $1 $1.$2/" /etc/hosts
+sed -i -e "s/127.0.0.1.*/127.0.0.1 localhost $1 $1.$2/" /etc/hosts
 
 echo "" >> /etc/hosts
 cat host_list >> /etc/hosts
